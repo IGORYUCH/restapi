@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<div class="alert alert-dark">
+    <div class="alert alert-secondary">
+        <p>
+            <div class=" alert-warning d-inline">POST</div>
+            <div class=" alert-success d-inline">/restapi/users/create</div>
+            <div class=" alert-info d-inline"></div>
+            <div class=" alert-danger d-inline">json={'username':email, 'password':password}</div>
+        </p>
+        <div class="alert alert-light"><strong>result:</strong> 201, {}</div>
+    </div>
+        <div class="alert alert-secondary">
+        <p>
+            <div class=" alert-warning d-inline">POST</div>
+            <div class=" alert-success d-inline">/restapi/users/login</div>
+            <div class=" alert-info d-inline"></div>
+            <div class=" alert-danger d-inline">json={'username':email, 'password':password}</div>
+        </p>
+        <div class="alert alert-light"><strong>result:</strong> 200, {"access_token": token}</div>
+    </div>
+        <div class="alert alert-secondary">
+        <p>
+            <div class=" alert-warning d-inline">GET</div>
+            <div class=" alert-success d-inline">/restapi/tasks</div>
+            <div class=" alert-info d-inline">headers = {Authorization: token}</div>
+            <div class=" alert-danger d-inline"></div>
+        </p>
+        <div class="alert alert-light"><strong>result:</strong> 200, {"tasks_id": [...]}</div>
+    </div>
+        <div class="alert alert-secondary">
+        <p>
+            <div class=" alert-warning d-inline">GET</div>
+            <div class=" alert-success d-inline">/restapi/tasks/&lt;id&gt;</div>
+            <div class=" alert-info d-inline">headers = {Authorization: token}</div>
+            <div class=" alert-danger d-inline"></div>
+        </p>
+        <div class="alert alert-light"><strong>result:</strong> 200, {"task"={"title":.., "description":.., "complete":true/false, "complete_date":yyyy-mm-dd}}</div>
+    </div>
+        <div class="alert alert-secondary">
+        <p>
+            <div class=" alert-warning d-inline">PUT</div>
+            <div class=" alert-success d-inline">/restapi/tasks/&lt;id&gt/complete</div>
+            <div class=" alert-info d-inline">headers = {Authorization: token}</div>
+            <div class=" alert-danger d-inline"></div>
+        </p>
+        <div class="alert alert-light"><strong>result:</strong> 200, {}</div>
+    </div>
+        <div class="alert alert-secondary">
+        <p>
+            <div class=" alert-warning d-inline">DELETE</div>
+            <div class=" alert-success d-inline">/restapi/tasks/&lt;id&gt/delete</div>
+            <div class=" alert-info d-inline">headers = {Authorization: token}</div>
+            <div class=" alert-danger d-inline"></div>
+        </p>
+        <div class="alert alert-light"><strong>result:</strong> 200, {}</div>
+    </div>
+        <div class="alert alert-secondary">
+        <p>
+            <div class=" alert-warning d-inline">POST</div>
+            <div class=" alert-success d-inline">/restapi/tasks/create</div>
+            <div class=" alert-info d-inline">headers = {Authorization: token}</div>
+            <div class=" alert-danger d-inline">json={"title":.., "description":.., "complete_date":iso_date}</div>
+        </p>
+        <div class="alert alert-light"><strong>result:</strong> 201, {}</div>
+    </div>
+</div>
+  </div>
+</body>
+</html>
