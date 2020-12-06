@@ -8,7 +8,7 @@ from re import fullmatch
 app = Flask(__name__)
 
 
-class User(object):
+class User:
     def __init__(self, id, username, password):
         self.id = id
         self.username = username
@@ -142,14 +142,14 @@ def delete_task(task_id):
         return make_response(jsonify({'error': 'no task with id {0} and user {1}'.format(task_id, current_identity.id)}), 404)
 
 
-@app.route('/restapi')
-def restapi():
-    return render_template('restapi.html')
+@app.route('/docs')
+def docs():
+    return render_template('docs.html')
 
 
 @app.route('/')
 def index():
-    return redirect(url_for('restapi'))
+    return redirect(url_for('docs'))
 
 
 app.config['SECRET_KEY'] = 'I like anime'
