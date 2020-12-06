@@ -3,6 +3,7 @@ from psycopg2 import connect
 from flask_jwt import JWT, jwt_required, current_identity
 from datetime import timedelta, datetime
 from werkzeug.security import check_password_hash, generate_password_hash
+from settings import DevelopmentConfig
 from re import fullmatch
 
 app = Flask(__name__)
@@ -152,20 +153,18 @@ def index():
     return redirect(url_for('docs'))
 
 
-app.config['SECRET_KEY'] = 'I like anime'
-app.config['JWT_AUTH_URL_RULE'] = '/restapi/users/login'
-app.config['JWT_EXPIRATION_DELTA'] = timedelta(hours=1)
+app.config.from_object(DevelopmentConfig)
 
-DBNAME = 'restapi3'
-USER = 'postgres'
-PASSWORD = '123q'
-PORT = 5432
-HOST = 'localhost'
-USERSTABLE = 'users'
-TASKSTABLE = 'tasks'
+DB_NAME = app.config['DB_NAME']
+DB_USER = app.config['DB_USER']
+DB_PASSWORD = app.config['DB_PASSWORD']
+DB_PORT = app.config['DB_PORT']
+DB_HOST = app.config['DB_HOST']
+USERSTABLE = app.config['USERSTABLE']
+TASKSTABLE = app.config['TASKSTABLE']
 
 jwt = JWT(app, authenticate, identity)
-connection = connect(dbname=DBNAME, user=USER, password=PASSWORD, port=PORT, host=HOST)
+connection = connect(dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, port=DB_PORT, host=DB_HOST)
 cursor = connection.cursor()
 
 
